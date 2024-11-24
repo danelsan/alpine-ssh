@@ -30,12 +30,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            script {
-                docker.image("${DOCKER_IMAGE}:${DOCKER_TAG}").remove()
-                docker.image("${DOCKER_IMAGE}:1.0").remove()
-            }
-        }
-    }
 }
