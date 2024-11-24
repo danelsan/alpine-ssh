@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-			sh 'build.sh'
+			sh 'docker build --build-arg ROOT_PASSWORD=admin -t alpine-ssh:1.0 .'
                         sh 'docker tag alpine-ssh:1.0 ${DOCKER_IMAGE}:1.0'
                         sh 'docker tag alpine-ssh:1.0 ${DOCKER_IMAGE}:${DOCKER_TAG}'
                 }
